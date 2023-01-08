@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Cards from '../Cards/Cards';
-import Graphs from '../Graphs/Graphs';
+//import Graphs from '../Graphs/Graphs';
 import PropTypes from 'prop-types'
 import './main.css';
 
