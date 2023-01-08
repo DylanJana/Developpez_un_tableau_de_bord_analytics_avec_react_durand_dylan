@@ -1,3 +1,4 @@
+// userInfo state in app.js of front
 const USER_MAIN_DATA = [
     {
         id: 12,
