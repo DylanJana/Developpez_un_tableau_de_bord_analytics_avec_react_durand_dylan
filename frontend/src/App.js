@@ -25,8 +25,7 @@ function App() {
       <div className="main-vertical-parent">
         <VerticalNav />
         <Main
-        //je stock dans les différentes props les states contenant les données actualisées selon de id de l'utilisateur.
-        // Differents props contain date
+        // Differents props contains recents data by id user
           activityDataProp={userActivity}
           userInfoProp={userInfo}
           sessionsProp={userSesions}
