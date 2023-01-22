@@ -1,46 +1,48 @@
-import React, { useState, useEffect } from 'react';
-// import Cards from '../Cards/Cards';
-// import Graphs from '../Graphs/Graphs';
-import PropTypes from 'prop-types'
-import './main.css';
+import React,{useState,useEffect} from 'react'
+import Cards from '../Cards/Cards';
+import Graphs from '../Graphs/Graphs';
+import './main.css'
+import PropTypes from 'prop-types';
 
+export default function Main(props) {
+// incomingUserInfoPropu = Propriété des info utilisateur entrante
+  const incomingUserInfoPropu = props.userInfoProp
+  const incomingUserActivityPropu = props.activityDataProp
+  const incomingUserSessionsPropu = props.sessionsProp
+  const incomingUserPerformancePropu = props.performanceProp
+  const incomingUserScorePropu = props.todayScoreProp
+  const incomingUserCardsPropu = props.cardsProp 
+  const [userScore,setUserScore] = useState(false)
+  const [userMessage,setUserMessage] = useState(false) 
 
-
-function Main(props) {
-  // incomingUserInfoPropu = Proriété des info utilisateur entrante
-  const incomingUserInfoPropu = props.userInfoProp;
-  const incomingUserActivityPropu = props.activityDataProp;
-  const incomingUserSessionsPropu = props.sessionsProp;
-  const incomingUserPerformancePropu = props.performanceProp;
-  const incomingUserScorePropu = props.todayScoreProp;
-  const incomingUserCardsPropu = props.cardsProp;
-
-  // States to change message, if user setUserScore
-  const [userScore, setUserScore] = useState(false);
-  const [userMessage, setUserMessage] = useState(false);
+  useEffect(() => {
+    setUserScore(incomingUserInfoPropu.score)
+    if(userScore < 0.5){
+      setUserMessage("Malheureusement 😞, vous n'avez pas atteint vos objectifs, vous pouvez rattraper votre retard à la prochaine séance ")
+    }else if(userScore >= 0.5){
+      setUserMessage("Félicitation ! Vous avez explosé vos objectifs hier 👏")
+    }
+  })
 
   return (
     <div className='main-parent'>
-      {/* <header className='main-header'>Bonjour <span className='user-name'>
+      <header className='main-header'>Bonjour <span className='user-name'>
         {
-          incomingUserInfoPropu ? incomingUserInfoPropu.userInfos.firstName : null
+          incomingUserInfoPropu ? incomingUserInfoPropu.userInfos.firstName:null
         }
-      </span></header>
+        </span></header>
       <div className='objective-result'>
         {
-          userMessage ? userMessage : null
+          userMessage ? userMessage:null
         }
-      </div>
+      </div> 
       <div className='graphs-cards-row'>
-        <Graphs activity={incomingUserActivityPropu} sessions={incomingUserSessionsPropu} performance={incomingUserPerformancePropu} score={incomingUserScorePropu} />
-        <Cards cards={incomingUserCardsPropu} />
-      </div> */}
-      Main
+          <Graphs activity={incomingUserActivityPropu} sessions = {incomingUserSessionsPropu} performance = {incomingUserPerformancePropu} score={incomingUserScorePropu} />
+          <Cards cards = {incomingUserCardsPropu} />
+      </div> 
     </div>
   )
 }
-
-export default Main;
 
 Main.propTypes = {
   activity:PropTypes.object,
@@ -49,4 +51,3 @@ Main.propTypes = {
   score:PropTypes.object,
   cards:PropTypes.object
 }
-
