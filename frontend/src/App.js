@@ -1,5 +1,5 @@
 // useState, render states dynamic
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import HorizontalNav from "./components/HorizontalNav/HorizontalNav.js";
 import VerticalNav from "./components/VerticalNav/VerticalNav.js";
 import Main from "./components/Main/Main.js";
