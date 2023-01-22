@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Cards from '../Cards/Cards';
-//import Graphs from '../Graphs/Graphs';
+// import Cards from '../Cards/Cards';
+// import Graphs from '../Graphs/Graphs';
 import PropTypes from 'prop-types'
 import './main.css';
 
@@ -35,6 +35,7 @@ function Main(props) {
         <Graphs activity={incomingUserActivityPropu} sessions={incomingUserSessionsPropu} performance={incomingUserPerformancePropu} score={incomingUserScorePropu} />
         <Cards cards={incomingUserCardsPropu} />
       </div> */}
+      Main
     </div>
   )
 }

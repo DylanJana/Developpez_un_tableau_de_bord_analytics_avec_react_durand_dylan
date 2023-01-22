@@ -9,11 +9,12 @@ export default function LineGraph() {
                 ];
   return (
     <div>
-      const renderLineChart = (
+      {/* const renderLineChart = (
         <LineChart width={400} height={400} data={data}>
           <Line type="monotone" dataKey="amt" stroke="#8884d8" />
         </LineChart>
-      );
+      ); */}
+      LineGraph
     </div>
   )
 }

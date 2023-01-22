@@ -3,6 +3,8 @@ import React, {useEffect, useState} from 'react';
 import HorizontalNav from "./components/HorizontalNav/HorizontalNav.js";
 import VerticalNav from "./components/VerticalNav/VerticalNav.js";
 import Main from "./components/Main/Main.js";
+import Cards from './components/Cards/Cards.js';
+import Graphs from './components/Graphs/ Graphs.js';
 import axios from "axios";
 import { LineChart, Line, Tooltip, XAxis, YAxis, CartesianGrid } from 'recharts';
 // import mainDatas from "./data/maindata.json";
@@ -12,51 +14,37 @@ import { LineChart, Line, Tooltip, XAxis, YAxis, CartesianGrid } from 'recharts'
 // Import PropTypes => transform props in differents types
 import PropTypes from "prop-types";
 import './App.css';
-
-// function App() {
-//   const [userInfo, setUserInfo] = useState(false);
-//   const [userActivity, setUserActivity] = useState(false);
-//   const [userSesions, setUserSessions] = useState(false);
-//   const [userPerformance, setUserPerformance] = useState(false);
-//   const USER_ID = 18;
-
-//   return (
-//     <div className="App">
-//       <HorizontalNav />
-//       <div className="main-vertical-parent">
-//         <VerticalNav />
-//         <Main
-//         // Differents props contains recents data by id user
-//           activityDataProp={userActivity}
-//           userInfoProp={userInfo}
-//           sessionsProp={userSesions}
-//           performanceProp={userPerformance}
-//           todayScoreProp={userInfo}
-//           cardsProp={userInfo.keyData}
-//         />
-//       </div>
-//     </div>
-//   );
-// }
+import BarGraph from './components/BarGraph/BarGraph.js';
+import LineGraph from './components/LineGraph/LineGraph.js';
+import RadarGraph from './components/RadarGraph/RadarGraph.js';
+import RadialGraph from './components/RadialGraph/RadialGraph.js';
 
 function App() {
-  const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400},
-  {name: 'Page B', uv: 400, pv: 2400, amt: 3000},
-  {name: 'Page C', uv: 400, pv: 2400, amt: 1000},
-  {name: 'Page D', uv: 400, pv: 2400, amt: 5000}
-  ];
+  const [userInfo, setUserInfo] = useState(false);
+  const [userActivity, setUserActivity] = useState(false);
+  const [userSesions, setUserSessions] = useState(false);
+  const [userPerformance, setUserPerformance] = useState(false);
+  const USER_ID = 18;
+
   return (
-    <div>
-      <LineChart width={400} height={400} data={data}>
-        <Line type="monotone" dataKey="amt" stroke="#8884d8" />
-        <CartesianGrid stroke="purple" strokeDasharray="1 20" />
-        <XAxis dataKey="name" />
-        <YAxis />
-        <Tooltip dataKey="uv"/>
-      </LineChart>
+    <div className="App">
+      <HorizontalNav />
+      <div className="main-vertical-parent">
+        <VerticalNav />
+        <Main
+        // Differents props contains recents data by id user
+          activityDataProp={userActivity}
+          userInfoProp={userInfo}
+          sessionsProp={userSesions}
+          performanceProp={userPerformance}
+          todayScoreProp={userInfo}
+          cardsProp={userInfo.keyData}
+        />
+      </div>
     </div>
-  )
+  );
 }
+
 
 export default App;
 

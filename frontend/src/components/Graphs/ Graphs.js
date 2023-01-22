@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
-import './graphs.css'
+import './graph.css'
 import BarGraph from '../BarGraph/BarGraph'
 import LineGraph from '../LineGraph/LineGraph'
 import RadarGraph from '../RadarGraph/RadarGraph'
-import RadialBarGraph from '../RadialBarGraph/RadialBarGraph'
+import RadialGraph from '../RadialGraph/RadialGraph'
 import PropTypes from 'prop-types'
 
 function Graphs(props) {
@@ -15,14 +15,19 @@ function Graphs(props) {
   
   return (
     <div>
-      <div className='aktivite-grafigi'>
+      {/* <div className='aktivite-grafigi'>
         <BarGraph aktiviteProp={incomingAktivitePropu} />
       </div>
       <div className='three-graphs'>
         <LineGraph sessions={incomingUserSessionsPropu} />
         <RadarGraph performances={incomingUserPerformancePropu} />
         <RadialBarGraph score={incomingUserScorePropu} />
-      </div>
+      </div> */}
+      Graphs
+      <LineGraph />
+      <RadarGraph />
+      <RadialGraph />
+      <BarGraph />
     </div>
   )
 }
