@@ -1,20 +1,61 @@
-import React from 'react';
-import { LineChart, Line } from 'recharts';
+import React, { useEffect, useState } from 'react'
+import './lineGraph.css'
+// j'importe les composants de Recharts (ex LineChart, Xaxis, ...)
+import {LineChart,XAxis,Tooltip,Line} from 'recharts'
 
-export default function LineGraph() {
-  const data = [{name: 'Page A', uv: 400, pv: 2400, amt: 2400},
-                {name: 'Page B', uv: 400, pv: 2400, amt: 3000},
-                {name: 'Page C', uv: 400, pv: 2400, amt: 1000},
-                {name: 'Page D', uv: 400, pv: 2400, amt: 5000}
-                ];
+export default function LineGraph(props) {
+  const incomingUserSessionsPropu = props.sessions;
+  /**@function reFormatSessionData
+   * @param {array} sessionData
+   * @return {void} - Nothing
+   */
+  const reFormatSessionData = (sessionData) => {
+    sessionData.map(item => {
+      switch(item.day){
+        case 1:
+          item.day = "L"
+          break;
+        case 2:
+          item.day = "M"
+          break;
+        case 3:
+          item.day = "M"
+          break;
+        case 4:
+          item.day = "J"
+          break;
+        case 5:
+          item.day = "V"
+          break;
+        case 6:
+          item.day = "S"
+         break;
+        case 7:
+          item.day = "D"
+          break;
+      }
+
+    })
+  }
+
+// props.sessions ? reFormatSessionData(incomingUserSessionsPropu):null;
+ if(props.sessions){
+  reFormatSessionData(incomingUserSessionsPropu)
+ }
+
   return (
-    <div>
-      {/* const renderLineChart = (
-        <LineChart width={400} height={400} data={data}>
-          <Line type="monotone" dataKey="amt" stroke="#8884d8" />
+    <div style= {{ marginTop:"30px" }} className="line-parent">
+      <p className='line-chart-title'>Durée moyenne des sessions</p>
+        <LineChart width={258} height={263} data={incomingUserSessionsPropu} >
+              {/* axe des abscisses(x) */}
+              <XAxis dataKey="day" axisLine = {{ stroke:"white" }} stroke="white" style={{ opacity:'0.5',fontWeight:'bold' }} />
+              {/* Tooltip=info bulle */}
+              <Tooltip labelStyle={{ display:'none' }} />
+              {/* stroke= couleur; fil= background; strokeWidth= épaisseur de la ligne; activeDot=background de l'info-bulle */}
+              <Line style={{ stroke:"white" }} type="monotone" dataKey="sessionLength" strokeWidth={2}  
+              // r=radius; fill= background
+              activeDot={{ stroke:"white", strokeWidth:'2' , r:5, fill:"white" }}  />
         </LineChart>
-      ); */}
-      LineGraph
     </div>
   )
 }
