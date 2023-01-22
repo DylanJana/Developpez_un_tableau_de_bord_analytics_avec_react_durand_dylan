@@ -7,6 +7,18 @@
   pointer-events: none;
 }
 
+*{
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main-vertical-parent{
+  display:flex;
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
